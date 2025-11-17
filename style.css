@@ -1,0 +1,499 @@
+/* Global reset-ish */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Shared page layout */
+.page {
+  display: none;
+  min-height: 100vh;
+  position: relative;
+  background-image: url("pexels-pixabay-163872.jpg");
+  background-repeat: no-repeat;
+  background-clip: border-box;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 40px 5vw;
+}
+
+.page.active {
+  display: flex;
+}
+
+/* Reusable buttons */
+.primary-btn,
+.secondary-btn,
+button {
+  cursor: pointer;
+  border-radius: 20px;
+  border: 1px solid #ffffffcc;
+  font-size: 16px;
+  padding: 10px 24px;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.primary-btn {
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
+.secondary-btn {
+  background-color: rgba(255, 255, 255, 0.16);
+}
+
+button:hover,
+.primary-btn:hover,
+.secondary-btn:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+}
+
+/* PAGE 1: Registration */
+.page1 {
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
+}
+
+.title h1 {
+  color: #5eeaff;
+  font-size: 72px;
+  font-family: "Satisfy", cursive;
+}
+
+.title h2 {
+  font-family: "Mulish", sans-serif;
+  margin-top: 10px;
+  font-size: 22px;
+}
+
+/* Card-like registration container */
+.registration_container {
+  background-color: rgba(0, 0, 0, 0.72);
+  padding: 30px 32px;
+  border-radius: 20px;
+  width: 380px;
+  max-width: 95vw;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
+}
+
+.registration_container > h1 {
+  font-family: "Satisfy", cursive;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 32px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.form-group input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid #ffffffcc;
+  padding: 6px 2px;
+  outline: none;
+  color: white;
+  font-size: 15px;
+}
+
+.form-group input:focus {
+  border-bottom-color:    #5eeaff;;
+}
+
+.error-message {
+  color: #ff9f9f;
+  font-size: 12px;
+  min-height: 16px;
+  margin-top: 3px;
+}
+
+input.invalid {
+  border-bottom-color: #ff6b6b !important;
+}
+
+/* PAGE 2: Travel Blog */
+.page2 {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.page2-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+  z-index: 0;
+}
+
+/* Sticky destination nav */
+.dest-nav {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.82);
+  padding: 12px 16px;
+  border-radius: 999px;
+  display: inline-flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  backdrop-filter: blur(6px);
+}
+
+.dest-nav a {
+  text-decoration: none;
+  color: #fefefe;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.dest-nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.page2-header {
+  margin: 20px 0 30px;
+}
+
+.page2-header h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.page2-header p {
+  font-size: 16px;
+  max-width: 480px;
+}
+
+/* Destination cards */
+.destinations {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+}
+
+.cards {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  min-height: 420px;
+  border-radius: 24px;
+  background: #fefefe;
+  overflow: hidden;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.45);
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
+  margin: 20px;
+  transform: scale(1.2)
+
+
+}
+
+.cards:hover {
+  transform: translateY(-4px) scale(1.5);
+  width: 800px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  transition: 0.5s;
+
+
+}
+
+.destination {
+  width: 100%;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #fff;
+  position: relative;
+  transition: 1s;
+}
+
+/* Common background behavior for destinations */
+.destination::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.78),
+    rgba(0, 0, 0, 0.05)
+  );
+  z-index: 0;
+}
+
+.destination h1,
+.destination h2,
+.destination button {
+  position: relative;
+  z-index: 1;
+}
+
+.destination h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.destination h2 {
+  font-size: 15px;
+  max-width: 420px;
+  margin-bottom: 14px;
+}
+
+/* Specific backgrounds */
+.paris {
+  background-image: url("paris.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.tokyo {
+  background-image: url("tokyo.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+.goa {
+  background-image: url("goa.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.sydney {
+  background-image: url("sydney.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.rome {
+  background-image: url("rome.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Next button at bottom of page2 */
+.next-page-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0 10px;
+}
+
+/* PAGE 3: Calculator */
+.page3 {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.page3-content {
+  background-color: rgba(0, 0, 0, 0.78);
+  padding: 26px 24px 32px;
+  border-radius: 20px;
+  width: 900px;
+  max-width: 95vw;
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.7);
+}
+
+.page3-content h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.page3-content h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.Travel,
+.Activity {
+  flex: 1 1 260px;
+  border-radius: 16px;
+  padding: 16px;
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.Travel h3,
+.Activity h3 {
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.Travel label,
+.Activity label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 6px 8px;
+  transition: background-color 0.2s ease;
+}
+
+.Travel label:hover,
+.Activity label:hover {
+  background-color: rgba(168, 224, 226, 0.36);
+}
+
+.Travel input,
+.Activity input {
+  margin-right: 8px;
+}
+
+.total-container {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+#totalAmount {
+  font-weight: 700;
+  color: #ffe45e;
+}
+
+/* PAGE 4: Confirmation */
+.page4 {
+  align-items: center;
+  justify-content: center;
+}
+
+.page4-card {
+  background-color: rgba(0, 0, 0, 0.82);
+  padding: 30px 28px;
+  border-radius: 22px;
+  width: 480px;
+  max-width: 95vw;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.75);
+  text-align: center;
+}
+
+.page4-card h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+#summaryText {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.receipt {
+  text-align: left;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 14px 14px 18px;
+}
+
+.receipt h2 {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.page4-actions {
+  display: flex;
+  justify-content: center;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.modal-overlay.hidden {
+  display: none;
+}
+
+.modal {
+  background-color: #111;
+  padding: 24px 26px;
+  border-radius: 18px;
+  max-width: 360px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+}
+
+.modal h2 {
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.modal p {
+  margin-bottom: 18px;
+  font-size: 15px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .page1 {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .title h1 {
+    font-size: 54px;
+  }
+
+  .dest-nav {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .page3-content {
+    padding: 20px 16px 26px;
+  }
+
+  .choices {
+    flex-direction: column;
+  }
+}

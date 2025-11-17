@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voyage Flow</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital@0;1&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Satisfy&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- PAGE 1: REGISTRATION -->
+  <section id="page1" class="page page1 active">
+    <div class="title">
+      <h1>Voyage Flow</h1>
+      <h2>Travel the world with us</h2>
+    </div>
+
+    <div class="registration_container">
+      <h1>Registration</h1>
+      <form id="registrationForm" novalidate>
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" required>
+          <small class="error-message"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Contact Number</label>
+          <input type="tel" id="phone" required>
+          <small class="error-message"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email ID</label>
+          <input type="email" id="email" required>
+          <small class="error-message"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="pincode">PIN Code</label>
+          <input type="text" id="pincode" required>
+          <small class="error-message"></small>
+        </div>
+
+        <button type="submit" class="primary-btn">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- PAGE 2: TRAVEL BLOG -->
+  <section id="page2" class="page page2">
+    <div class="overlay"></div>
+
+    <div class="page2-inner">
+      <!-- Sticky nav -->
+
+
+      <header class="page2-header">
+        <h1>Explore Our Top Destinations</h1>
+
+      </header>
+
+      <div class="destinations">
+        <section id="dest-paris" class="cards">
+          <div class="destination paris">
+            <h1>Paris</h1>
+            <h2>The City of Light, famous for its art, cafés, and timeless romance.</h2>
+            <button class="secondary-btn">Plan your Paris trip →</button>
+          </div>
+        </section>
+
+        <section id="dest-tokyo" class="cards">
+          <div class="destination tokyo">
+            <h1>Tokyo</h1>
+            <h2>A perfect blend of neon skylines, temples, and unforgettable street food.</h2>
+            <button class="secondary-btn">Plan your Tokyo trip →</button>
+          </div>
+        </section>
+
+        <section id="dest-goa" class="cards">
+          <div class="destination goa">
+            <h1>Goa</h1>
+            <h2>Golden beaches, sea breeze, and a relaxed coastal vibe you’ll never forget.</h2>
+            <button class="secondary-btn">Plan your Goa trip →</button>
+          </div>
+        </section>
+
+        <section id="dest-sydney" class="cards">
+          <div class="destination sydney">
+            <h1>Sydney</h1>
+            <h2>Iconic harbour views, vibrant culture, and coastal walks all in one city.</h2>
+            <button class="secondary-btn">Plan your Sydney trip →</button>
+          </div>
+        </section>
+
+        <section id="dest-rome" class="cards">
+          <div class="destination rome">
+            <h1>Rome</h1>
+            <h2>Walk through living history, from the Colosseum to charming piazzas.</h2>
+            <button class="secondary-btn">Plan your Rome trip →</button>
+          </div>
+        </section>
+      </div>
+
+    
+    </div>
+  </section>
+
+  <!-- PAGE 3: PRICE CALCULATOR -->
+  <section id="page3" class="page page3">
+    <div class="page3-content">
+      <h1>Let's Calculate Your Budget</h1>
+      <h2>Select your preferences</h2>
+
+      <div class="choices">
+        <div class="Travel">
+          <h3>Travel Options (choose one)</h3>
+
+          <label>
+            <input type="radio" name="travel" data-price="5000" checked>
+            Economy Class Airplane — ₹5000
+          </label>
+
+          <label>
+            <input type="radio" name="travel" data-price="9000">
+            Premium Class Airplane — ₹9000
+          </label>
+
+          <label>
+            <input type="radio" name="travel" data-price="15000">
+            Business Class Airplane — ₹15000
+          </label>
+
+          <label>
+            <input type="radio" name="travel" data-price="22000">
+            First Class Airplane — ₹22000
+          </label>
+        </div>
+
+        <div class="Activity">
+          <h3>Stay & Activities (you can choose multiple)</h3>
+
+          <label>
+            <input type="checkbox" data-price="6000">
+            Luxury Hotel — ₹6000
+          </label>
+
+          <label>
+            <input type="checkbox" data-price="4000">
+            Beach / Resort Stay — ₹4000
+          </label>
+
+          <label>
+            <input type="checkbox" data-price="2500">
+            Local Food Tour — ₹2500
+          </label>
+
+          <label>
+            <input type="checkbox" data-price="4500">
+            Fine Dining Experience — ₹4500
+          </label>
+
+          <label>
+            <input type="checkbox" data-price="3500">
+            City Sightseeing Pass — ₹3500
+          </label>
+        </div>
+      </div>
+
+      <div class="total-container">
+        <p>Your Total Budget: <span id="totalAmount">₹0</span></p>
+      </div>
+
+      <div class="next-page-container">
+        <button id="confirmTrip" class="primary-btn">Confirm & View Summary →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 4: CONFIRMATION -->
+  <section id="page4" class="page page4">
+    <div class="page4-card">
+      <h1>Thank you for choosing us!</h1>
+      <p id="summaryText">Your total budget is ₹0.</p>
+
+      <div class="receipt">
+        <h2>Receipt (Simulation)</h2>
+        <p id="receiptDetails">Your selections will appear here.</p>
+      </div>
+
+      <div class="page4-actions">
+        <button id="startOver" class="secondary-btn">Start Over</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL (RE-USABLE) -->
+  <div id="modalOverlay" class="modal-overlay hidden">
+    <div class="modal">
+      <h2 id="modalTitle">Success</h2>
+      <p id="modalMessage">Your message goes here.</p>
+      <button id="modalClose" class="primary-btn">OK</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
